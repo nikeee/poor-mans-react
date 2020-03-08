@@ -1,0 +1,7 @@
+lib/*
+*.js
+*.js.map
+node_modules/
+*.log
+.settings/
+*.db*

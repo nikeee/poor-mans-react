@@ -1,0 +1,34 @@
+name: Pages
+
+on: push
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Use Node.js 13.2
+      uses: actions/setup-node@v1
+      with:
+        node-version: 13.2
+
+    # poor man's CD
+    - name: npm install, build, and test
+      run: |
+        npm run compile
+        mkdir site
+        mv index.html site
+        mv build site
+
+      env:
+        CI: true
+
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: site
