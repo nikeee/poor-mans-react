@@ -5,7 +5,7 @@ Inspired by Tejas Kumar's talk [Deconstructing React](https://www.youtube.com/wa
 
 Essential stuff that is missing:
 - The ability to have multiple root nodes (currently, it is fixed to render `<App />` to `document.body`)
-- Re-using DOM nodes (for performacne and to prevent loss of focus etc)
+- Re-using DOM nodes (for performance and to prevent loss of focus etc)
 - Class-based components
 - Style support
 - All hooks except `useState`
